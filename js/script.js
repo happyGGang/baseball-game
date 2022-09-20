@@ -30,7 +30,7 @@
     const gameLimit = Array(limit).fill(false)
     let password = ''
     while(password.length < digit) {
-      const random = parseInt(Math.random * 10, 10)
+      const random = parseInt(Math.random() * 10, 10)
 
       if(gameLimit[random]) {
         continue

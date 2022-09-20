@@ -8,7 +8,7 @@
       playGame(e)
     })
 
-    setHomeRun()
+    setPassword()
   }
 
   const baseball = {
@@ -26,7 +26,7 @@
   let {trial, end} = baseball
 
   /*  4자리 수를 모두 맞추었을 때 */
-  const setHomeRun = () => {
+  const setPassword = () => {
 
   }
 

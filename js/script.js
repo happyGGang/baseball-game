@@ -24,10 +24,20 @@
   // 구조분해 할당
   const {limit, digit, $question, $answer, $input} = baseball
   let {trial, end} = baseball
-
-  /*  4자리 수를 모두 맞추었을 때 */
+  
+  /*  패스워드 지정 */
   const setPassword = () => {
+    const gameLimit = Array(limit).fill(false)
+    let password = ''
+    while(password.length < digit) {
+      const random = parseInt(Math.random * 10, 10)
 
+      if(gameLimit[random]) {
+        continue
+      }
+      password += random
+      gameLimit[random] = true
+    }
   }
 
   /* 시도를 했을때 / nunber : 내가 입력한 숫자 / hint: 현재 어떤 상황인지? */
@@ -36,28 +46,61 @@
   }
 
    /* 번호가 같은지 */
-  const isCorrect = () => {
-
+  const isCorrect = (number, answer) => {
+    return number === answer
   }
 
    /* 중복번호가 있는지 */
-  const isDuplicate = () => {
-
+  const isDuplicate = (number) => {
+    return [...new Set(number.split(''))].length !== digit
   }
 
  /* 스트라이크 갯수 */
-  const getStrikes = () => {
+  const getStrikes = (number, answer) => {
+    let strike = 0
+    const nums = number.split('')
 
+    nums.map((digit, index) => {
+      if(digit === answer[index]) {
+        strike++
+      }
+    })
+
+    return strike
   }
 
- /* 볼 카운트 갯수 */
-  const getBalls = () => {
 
+ /* 볼 카운트 갯수 */
+  const getBalls = (number, answer) => {
+    let ball = 0
+    const nums = number.split('')
+    const gameLimit = Array(limit).fill(false)
+
+    answer.split('').map((num) => {
+      gameLimit[num] = true
+    })
+
+    nums.map((num, index) => {
+      if(answer[index] !== num && !!gameLimit[num]) {
+        ball++
+      }
+    })
+
+    return ball
   }
 
  /* 시도에 따른 결과 */
-  const getResult = () => {
+  const getResult = (number, answer) => {
+    if(isCorrect(number, answer)) {
+      end = true
+      $answer.innerHTML = baseball.password
+      return '홈런!'
+    }
 
+    const strikes = getStrikes(number, answer)
+    const balls = getBalls(number, answer)
+
+    return 'STRIKE : ' + strikes + ' BALL : ' + balls
   }
 
   /* 게임 플레이  */

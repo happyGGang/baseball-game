@@ -1,12 +1,10 @@
-## baseball
+# baseball
+<img width="693" alt="스크린샷 2022-10-14 오후 11 09 36" src="https://user-images.githubusercontent.com/96277834/195867608-2a901ec1-e6d3-4070-a2d6-f0d39edae35f.png">
 
-- 야구 게임 구현
+- 야구 게임 만들기
 - 10번의 시도로 4자리의 숫자를 맞추는 게임
 
-### input type="number"
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
-
-- input type number의 min과 max에 대한 이해
+## 이번 프로젝트에서 익숙해져볼 문법들
 
 ### calc
 https://developer.mozilla.org/en-US/docs/Web/CSS/calc()
@@ -20,11 +18,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Dest
 ### new Set()
 https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Set
 
-- 새로운 배열을 중복없이 반환하는 Set()의 사용예제
-- 하나의 Set 내 값은 한 번만 나타날 수 있습니다. 즉, 어떤 값은 그 Set 콜렉션 내에서 유일하게 설정
+- 새로운 배열을 중복없이 반환함
 
 ### parseInt
 https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/parseInt
 
-- parseInt의 기본값은 10이 아님. 즉, 10진수로 변환안됨
 - 첫번째 인자를 특정 radix(진수) 값으로 표현한 정수가 반환
